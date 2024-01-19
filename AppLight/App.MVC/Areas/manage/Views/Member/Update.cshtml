@@ -1,0 +1,28 @@
+﻿@model Member
+@{
+    ViewData["Title"] = "Update";
+}
+<div class="container-fluid">
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Name">Name</label>
+            <input asp-for="Name" class="form-control">
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Prof">Profession</label>
+            <input asp-for="Prof" class="form-control">
+            <span asp-validation-for="Prof"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ImageFile">Image</label>
+            <input asp-for="ImageFile" class="form-control">
+            <span asp-validation-for="ImageFile" class="text-danger">
+            </span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    </form>
+
+</div>

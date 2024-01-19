@@ -1,0 +1,42 @@
+﻿@model List<Member>
+@{
+    ViewData["Title"] = "Index";
+    int counter = 0;
+}
+<div >
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Profession</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) 
+            {
+                counter++;
+                <tr>
+                   
+                    <th scope="row">@counter</th>
+                    <td>@item.Name</td>
+                    <td>@item.Prof</td>
+                    <td><img src="~/uploads/memebers/@item.ImageUrl" /></td>
+                   
+                </tr>
+                <td><a class="btn btn-success" asp-action="update" asp-controller="member" asp-route-id="@item.Id">
+                    Update
+                </a>
+                <a asp-action="delete" class="btn btn-danger" asp-controller="member" asp-route-id="@item.Id">
+                    Delete
+                </a>
+            </td>
+            }
+           
+        </tbody>
+    </table>
+
+</div>
+
